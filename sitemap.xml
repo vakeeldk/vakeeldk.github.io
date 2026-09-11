@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://vakeeldk.github.io/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://vakeeldk.github.io/images/advocate-ml-sharma-portrait.png</image:loc>
+      <image:title>Senior Advocate M.L. Sharma Mukerian</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vakeeldk.github.io/images/dk-portrait-3.png</image:loc>
+      <image:title>Advocate Dinesh D.K. Sharma Mukerian</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vakeeldk.github.io/images/legal-reference-library.jpeg</image:loc>
+      <image:title>Legal Reference Library Sharma Law Chambers Mukerian</image:title>
+    </image:image>
+  </url>
+</urlset>
