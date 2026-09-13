@@ -117,8 +117,27 @@
           {
             "@type": "Person",
             "name": "Advocate Dinesh (D.K. Sharma)",
-            "jobTitle": "Practicing Advocate",
-            "hasCredential": "Advocate since 2016 (10+ Years Active Practice)",
+            "alternateName": ["Dinesh Kumar", "Advocate DK Sharma"],
+            "jobTitle": "Practicing Advocate & Guest Faculty Mentor",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Panjab University"
+            },
+            "affiliation": {
+              "@type": "EducationalOrganization",
+              "name": "Surya Law Academy",
+              "url": "https://suryalawacademy.co.in/"
+            },
+            "sameAs": [
+              "https://suryalawacademy.co.in/"
+            ],
+            "hasCredential": [
+              "B.A. LL.B (Panjab University)",
+              "Advocate since 2016 (10+ Years Active Court Practice)",
+              "14+ Years Teaching Experience (Guest Faculty & Mentor at Surya Law Academy)",
+              "Legal Reasoning Specialist",
+              "Leads Team of 12+ Expert Teachers"
+            ],
             "image": "https://vakeeldk.github.io/images/dk-portrait-3.png",
             "worksFor": { "@id": "https://vakeeldk.github.io/#lawfirm" }
           }
@@ -763,6 +782,96 @@
       flex-wrap: wrap;
     }
 
+    /* ACADEMIC & MENTORSHIP BOX (Surya Law Academy) */
+    .advocate-academic-box {
+      background: linear-gradient(135deg, rgba(197, 160, 89, 0.08) 0%, rgba(9, 19, 34, 0.03) 100%);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+    .academic-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .academic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary-navy);
+      background: rgba(197, 160, 89, 0.22);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .academic-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+    .academic-link:hover {
+      color: var(--accent-gold-dark);
+      text-decoration: underline;
+    }
+    .academic-box-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+    }
+    .academic-box-title a {
+      color: var(--primary-navy);
+      text-decoration: underline;
+      text-decoration-color: var(--accent-gold);
+      transition: var(--transition);
+    }
+    .academic-box-title a:hover {
+      color: var(--accent-gold);
+    }
+    .academic-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .academic-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .academic-list li::before {
+      content: '•';
+      color: var(--accent-gold);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .highlight-backlink {
+      color: var(--primary-navy);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--accent-gold);
+      transition: var(--transition);
+    }
+    .highlight-backlink:hover {
+      color: var(--accent-gold);
+    }
+
     /* PRACTICE AREAS */
     .practice-section {
       background: var(--bg-cream);
@@ -1277,6 +1386,36 @@
     .footer-copy {
       font-size: 0.8rem;
     }
+    .footer-affiliation {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 10px 16px;
+      font-size: 0.82rem;
+    }
+    .footer-affil-label {
+      color: var(--accent-gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+    }
+    .footer-affil-link {
+      color: #e2e8f0;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-affil-link:hover {
+      color: var(--accent-gold);
+      text-decoration: underline;
+    }
 
     /* DESKTOP FLOATING BUTTONS */
     .floating-actions {
@@ -1630,7 +1769,7 @@
         <div class="advocate-card-body">
           <div class="advocate-title-box">
             <h3 class="advocate-name">Advocate Dinesh (D.K. Sharma)</h3>
-            <p class="advocate-designation">Advocate | Mukerian, Punjab | Advocate Since 2016</p>
+            <p class="advocate-designation">Advocate | B.A. LL.B (Panjab University) | Guest Faculty &amp; Mentor</p>
           </div>
           <p class="advocate-bio">
             Advocate Dinesh (D.K. Sharma) is a practicing advocate (advocate since 2016) based at <strong>Chamber No. 12 (Ground Floor) & Chamber No. 64-65 (Second Floor)</strong>, New Court Complex, Mukerian, District Hoshiarpur, Punjab. With <strong>over a decade of active legal practice</strong>, he provides legal representation, consultation, and assistance in a range of civil and criminal matters before the competent courts and authorities.
@@ -1638,8 +1777,29 @@
           <p class="advocate-bio" style="margin-top: -8px;">
             With a practical approach to litigation and legal documentation, Advocate Dinesh focuses on providing clients with professional legal advice, effective representation, and appropriate legal remedies based on the facts and circumstances of each matter.
           </p>
+
+          <!-- Academic & Mentorship Box (Surya Law Academy Backlink) -->
+          <div class="advocate-academic-box">
+            <div class="academic-box-header">
+              <span class="academic-badge">🎓 Guest Faculty &amp; Mentor</span>
+              <a href="https://suryalawacademy.co.in/" target="_blank" rel="noopener" class="academic-link" title="Visit Surya Law Academy">
+                suryalawacademy.co.in ↗
+              </a>
+            </div>
+            <div class="academic-box-title">
+              Dinesh Kumar &mdash; Guest Faculty &amp; Mentor at <a href="https://suryalawacademy.co.in/" target="_blank" rel="noopener">Surya Law Academy</a>
+            </div>
+            <ul class="academic-list">
+              <li><strong>B.A. LL.B</strong> (Panjab University)</li>
+              <li><strong>14+ Years</strong> Teaching &amp; Mentorship Experience (Guest Faculty)</li>
+              <li><strong>Legal Reasoning Specialist</strong></li>
+              <li><strong>Leads Team of 12+ Expert Teachers</strong> (Academic Mentorship)</li>
+            </ul>
+          </div>
+
           <ul class="advocate-highlights">
-            <li><strong>10+ Years Active Practice</strong> (Continuous advocacy since 2016)</li>
+            <li><strong>10+ Years Active Court Practice</strong> (Continuous advocacy since 2016)</li>
+            <li><strong>Guest Faculty &amp; Mentor:</strong> <a href="https://suryalawacademy.co.in/" target="_blank" rel="noopener" class="highlight-backlink">Surya Law Academy</a> (Mentoring Law Aspirants &amp; Legal Reasoning)</li>
             <li><strong>Chambers:</strong> Chamber No. 12 (Ground Floor) & Chamber No. 64-65 (Second Floor)</li>
             <li>Civil Litigation & Property Disputes</li>
             <li>Criminal Defense & Bail Matters</li>
@@ -2270,6 +2430,12 @@
       <div class="footer-brand">
         <h4>SHARMA LAW CHAMBERS</h4>
         <p>Advocate M.L. Sharma & Advocate Dinesh (D.K. Sharma) | Chamber No. 12 & 64-65 (2nd Floor), New Court Complex, Mukerian, Punjab</p>
+      </div>
+      <div class="footer-affiliation">
+        <span class="footer-affil-label">Educational &amp; Mentorship Affiliation:</span>
+        <a href="https://suryalawacademy.co.in/" target="_blank" rel="noopener" class="footer-affil-link" title="Surya Law Academy - Premier Law Entrance &amp; Legal Education Institute">
+          🏛️ <strong>Surya Law Academy</strong> &bull; Dinesh Kumar (Guest Faculty &amp; Mentor &bull; B.A. LL.B, Panjab University) ↗
+        </a>
       </div>
       <div class="footer-copy">
         © 2026 Sharma Law Chambers. All rights reserved. | Tel: +91 750-800-8333
