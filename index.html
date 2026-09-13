@@ -1233,6 +1233,96 @@
       font-style: italic;
     }
 
+    /* REVIEWS PAGINATION & TABBING */
+    .reviews-pagination-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .reviews-pagination-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pagination-btn {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--primary-navy);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .pagination-btn:hover:not(:disabled) {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+    .pagination-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .pagination-numbers {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .page-num {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      color: var(--primary-navy);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .page-num:hover:not(.active) {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+    .page-num.active {
+      background: var(--primary-navy);
+      color: var(--accent-gold-light);
+      border-color: var(--primary-navy);
+      box-shadow: 0 4px 14px rgba(9, 19, 34, 0.22);
+    }
+    .reviews-page-indicator {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .review-card[data-page] {
+      display: none;
+      animation: fadeInReview 0.35s ease-in-out;
+    }
+    .review-card[data-page].active-page {
+      display: flex;
+    }
+    @keyframes fadeInReview {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* CONSULTATION & CONTACT */
     .contact-section {
       background: var(--bg-alt);
@@ -2271,15 +2361,17 @@
       </div>
     </div>
 
-    <!-- Reviews Grid -->
+    <!-- Reviews Grid (Paginated: 6 per page - 2 English, 2 Punjabi/Hindi, 2 Hinglish) -->
     <div class="reviews-grid">
-      <div class="review-card">
+      <!-- ================= PAGE 1 (Default visible on home page - 6 reviews) ================= -->
+      <!-- 1. English: Rajesh Kumar -->
+      <div class="review-card active-page" data-page="1">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">RK</div>
             <div>
               <div class="reviewer-name">Rajesh Kumar</div>
-              <div class="reviewer-verified">✓ Verified Client</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Mukerian</div>
             </div>
           </div>
           <div class="review-stars">★★★★★</div>
@@ -2289,13 +2381,14 @@
         </p>
       </div>
 
-      <div class="review-card">
+      <!-- 2. English: Priya Singh -->
+      <div class="review-card active-page" data-page="1">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">PS</div>
             <div>
               <div class="reviewer-name">Priya Singh</div>
-              <div class="reviewer-verified">✓ Verified Client</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Mukerian</div>
             </div>
           </div>
           <div class="review-stars">★★★★★</div>
@@ -2305,72 +2398,8 @@
         </p>
       </div>
 
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">HP</div>
-            <div>
-              <div class="reviewer-name">Harjeet Patel</div>
-              <div class="reviewer-verified">✓ Verified Client</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "Outstanding service and great communication. Advocate Sharma resolved our revenue matter quickly. Very satisfied with the timely results."
-        </p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">MS</div>
-            <div>
-              <div class="reviewer-name">Meera Sharma</div>
-              <div class="reviewer-verified">✓ Verified Client</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "Professional, reliable, and approachable. Explained the entire legal procedure step-by-step. Will definitely recommend them to anyone in need of legal counsel."
-        </p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">VS</div>
-            <div>
-              <div class="reviewer-name">Vikram Singh</div>
-              <div class="reviewer-verified">✓ Verified Client</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "Deep legal expertise and great court demeanor. Advocate DK Sharma gave us practical and honest advice without false promises."
-        </p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">AV</div>
-            <div>
-              <div class="reviewer-name">Anjali Verma</div>
-              <div class="reviewer-verified">✓ Verified Client</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "Best decision to consult Sharma Law Chambers. Very professional approach and prompt drafting of legal documentation. Highly recommended!"
-        </p>
-      </div>
-
-      <!-- 7. Gurpreet Singh Sandhu (Punjabi) -->
-      <div class="review-card">
+      <!-- 3. Punjabi: Gurpreet Singh Sandhu -->
+      <div class="review-card active-page" data-page="1">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">GS</div>
@@ -2386,8 +2415,8 @@
         </p>
       </div>
 
-      <!-- 8. Balwinder Kaur (Punjabi / Hinglish) -->
-      <div class="review-card">
+      <!-- 4. Punjabi: Balwinder Kaur -->
+      <div class="review-card active-page" data-page="1">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">BK</div>
@@ -2403,25 +2432,8 @@
         </p>
       </div>
 
-      <!-- 9. Surinder Mohan Sharma (Hindi) -->
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">SM</div>
-            <div>
-              <div class="reviewer-name">Surinder Mohan Sharma</div>
-              <div class="reviewer-verified">✓ Verified Client &bull; Civil Lines Mukerian</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "मुकेरियां कोर्ट में अगर कोई सबसे काबिल और अनुभवी सिविल वकील हैं तो वो एडवोकेट एम.एल. शर्मा और एडवोकेट दिनेश शर्मा हैं। हमारे पुश्तैनी ज़मीन विवाद में स्टे ऑर्डर बहुत ही तेज़ी और सूझबूझ से दिलवाया। Best civil advocate in Mukerian."
-        </p>
-      </div>
-
-      <!-- 10. Kuldeep Singh Bajwa (Hinglish / NRI) -->
-      <div class="review-card">
+      <!-- 5. Hinglish: Kuldeep Singh Bajwa -->
+      <div class="review-card active-page" data-page="1">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">KB</div>
@@ -2437,8 +2449,8 @@
         </p>
       </div>
 
-      <!-- 11. Amanpreet Singh Dhillon (Punjabi / Hinglish) -->
-      <div class="review-card">
+      <!-- 6. Hinglish: Amanpreet Singh Dhillon -->
+      <div class="review-card active-page" data-page="1">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">AD</div>
@@ -2454,8 +2466,60 @@
         </p>
       </div>
 
-      <!-- 12. Sunita Rani (Hindi) -->
-      <div class="review-card">
+      <!-- ================= PAGE 2 (6 reviews - 2 English, 2 Punjabi/Hindi, 2 Hinglish) ================= -->
+      <!-- 7. English: Harjeet Patel -->
+      <div class="review-card" data-page="2">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">HP</div>
+            <div>
+              <div class="reviewer-name">Harjeet Patel</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Mukerian</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "Outstanding service and great communication. Advocate Sharma resolved our revenue matter quickly. Very satisfied with the timely results."
+        </p>
+      </div>
+
+      <!-- 8. English: Meera Sharma -->
+      <div class="review-card" data-page="2">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">MS</div>
+            <div>
+              <div class="reviewer-name">Meera Sharma</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Hoshiarpur</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "Professional, reliable, and approachable. Explained the entire legal procedure step-by-step. Will definitely recommend them to anyone in need of legal counsel."
+        </p>
+      </div>
+
+      <!-- 9. Hindi: Surinder Mohan Sharma -->
+      <div class="review-card" data-page="2">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">SM</div>
+            <div>
+              <div class="reviewer-name">Surinder Mohan Sharma</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Civil Lines Mukerian</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "मुकेरियां कोर्ट में अगर कोई सबसे काबिल और अनुभवी सिविल वकील हैं तो वो एडवोकेट एम.एल. शर्मा और एडवोकेट दिनेश शर्मा हैं। हमारे पुश्तैनी ज़मीन विवाद में स्टे ऑर्डर बहुत ही तेज़ी और सूझबूझ से दिलवाया। Best civil advocate in Mukerian."
+        </p>
+      </div>
+
+      <!-- 10. Hindi: Sunita Rani -->
+      <div class="review-card" data-page="2">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">SR</div>
@@ -2471,8 +2535,8 @@
         </p>
       </div>
 
-      <!-- 13. Manjit Singh Saini (Hinglish) -->
-      <div class="review-card">
+      <!-- 11. Hinglish: Manjit Singh Saini -->
+      <div class="review-card" data-page="2">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">MS</div>
@@ -2488,42 +2552,8 @@
         </p>
       </div>
 
-      <!-- 14. Harbhajan Singh Gill (Punjabi) -->
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">HG</div>
-            <div>
-              <div class="reviewer-name">Harbhajan Singh Gill</div>
-              <div class="reviewer-verified">✓ Verified Client &bull; Hajipur / Mukerian</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "ਪੰਜਾਬ ਨੈਸ਼ਨਲ ਬੈਂਕ (PNB) ਲੋਨ ਲਈ Title Search Report (TSR) ਅਤੇ ਰਜਿਸਟਰੀ ਵਸੀਕਾ ਤਿਆਰ ਕਰਵਾਉਣ ਲਈ ਅਸੀਂ ਐਡਵੋਕੇਟ ਦਿਨੇਸ਼ ਸ਼ਰਮਾ ਜੀ ਕੋਲ ਗਏ। ਬੈਂਕ ਪੈਨਲ ਐਡਵੋਕੇਟ ਹੋਣ ਕਰਕੇ ਸਾਰਾ ਕੰਮ ਬਿਲਕੁਲ ਨਿਯਮਾਂ ਅਨੁਸਾਰ ਬਿਨਾਂ ਕਿਸੇ ਦੇਰੀ ਦੇ ਹੋ ਗਿਆ।"
-        </p>
-      </div>
-
-      <!-- 15. Pooja Aggarwal (Hindi) -->
-      <div class="review-card">
-        <div class="review-card-header">
-          <div class="reviewer-info">
-            <div class="reviewer-avatar">PA</div>
-            <div>
-              <div class="reviewer-name">Pooja Aggarwal</div>
-              <div class="reviewer-verified">✓ Verified Client &bull; Mukerian Market</div>
-            </div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-        <p class="review-text">
-          "Mutual consent divorce (धारा 13B) की कानूनी प्रक्रिया को इन्होंने बहुत ही शांति, संवेदनशीलता और पूरी गोपनीयता के साथ पूरा करवाया। मुकेरियां में फैमिली मैटर्स के लिए सबसे भरोसेमंद और बेहतरीन लीगल चैंबर।"
-        </p>
-      </div>
-
-      <!-- 16. Jaswinder Singh Cheema (Hinglish) -->
-      <div class="review-card">
+      <!-- 12. Hinglish: Jaswinder Singh Cheema -->
+      <div class="review-card" data-page="2">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">JC</div>
@@ -2539,8 +2569,77 @@
         </p>
       </div>
 
-      <!-- 17. Rakesh Kumar Mahajan (Hinglish) -->
-      <div class="review-card">
+      <!-- ================= PAGE 3 (6 reviews - 2 English, 2 Punjabi/Hindi, 2 Hinglish) ================= -->
+      <!-- 13. English: Vikram Singh -->
+      <div class="review-card" data-page="3">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">VS</div>
+            <div>
+              <div class="reviewer-name">Vikram Singh</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Mukerian</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "Deep legal expertise and great court demeanor. Advocate DK Sharma gave us practical and honest advice without false promises."
+        </p>
+      </div>
+
+      <!-- 14. English: Anjali Verma -->
+      <div class="review-card" data-page="3">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">AV</div>
+            <div>
+              <div class="reviewer-name">Anjali Verma</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Dasuya</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "Best decision to consult Sharma Law Chambers. Very professional approach and prompt drafting of legal documentation. Highly recommended!"
+        </p>
+      </div>
+
+      <!-- 15. Punjabi: Harbhajan Singh Gill -->
+      <div class="review-card" data-page="3">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">HG</div>
+            <div>
+              <div class="reviewer-name">Harbhajan Singh Gill</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Hajipur / Mukerian</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "ਪੰਜਾਬ ਨੈਸ਼ਨਲ ਬੈਂਕ (PNB) ਲੋਨ ਲਈ Title Search Report (TSR) ਅਤੇ ਰਜਿਸਟਰੀ ਵਸੀਕਾ ਤਿਆਰ ਕਰਵਾਉਣ ਲਈ ਅਸੀਂ ਐਡਵੋਕੇਟ ਦਿਨੇਸ਼ ਸ਼ਰਮਾ ਜੀ ਕੋਲ ਗਏ। ਬੈਂਕ ਪੈਨਲ ਐਡਵੋਕੇਟ ਹੋਣ ਕਰਕੇ ਸਾਰਾ ਕੰਮ ਬਿਲਕੁਲ ਨਿਯਮਾਂ ਅਨੁਸਾਰ ਬਿਨਾਂ ਕਿਸੇ ਦੇਰੀ ਦੇ ਹੋ ਗਿਆ।"
+        </p>
+      </div>
+
+      <!-- 16. Hindi: Pooja Aggarwal -->
+      <div class="review-card" data-page="3">
+        <div class="review-card-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">PA</div>
+            <div>
+              <div class="reviewer-name">Pooja Aggarwal</div>
+              <div class="reviewer-verified">✓ Verified Client &bull; Mukerian Market</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          "Mutual consent divorce (धारा 13B) की कानूनी प्रक्रिया को इन्होंने बहुत ही शांति, संवेदनशीलता और पूरी गोपनीयता के साथ पूरा करवाया। मुकेरियां में फैमिली मैटर्स के लिए सबसे भरोसेमंद और बेहतरीन लीगल चैंबर।"
+        </p>
+      </div>
+
+      <!-- 17. Hinglish: Rakesh Kumar Mahajan -->
+      <div class="review-card" data-page="3">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">RM</div>
@@ -2556,8 +2655,8 @@
         </p>
       </div>
 
-      <!-- 18. Tarsem Singh Randhawa (Punjabi / Hinglish) -->
-      <div class="review-card">
+      <!-- 18. Hinglish: Tarsem Singh Randhawa -->
+      <div class="review-card" data-page="3">
         <div class="review-card-header">
           <div class="reviewer-info">
             <div class="reviewer-avatar">TR</div>
@@ -2571,6 +2670,26 @@
         <p class="review-text">
           "Police investigation and criminal trial related matter ch Advocate Dinesh Sharma ji ne accurate legal advice ditti te stage-wise guidance kiti. Courtroom di poori jankari te humble nature. Mukerian de top advocate ne."
         </p>
+      </div>
+    </div>
+
+    <!-- Reviews Pagination Controls -->
+    <div class="reviews-pagination-wrap">
+      <div class="reviews-pagination-controls">
+        <button class="pagination-btn prev-btn" id="prevReviewsBtn" onclick="changeReviewPage(-1)" disabled aria-label="Previous reviews">
+          ← Previous
+        </button>
+        <div class="pagination-numbers" id="reviewsPageNumbers">
+          <button class="page-num active" onclick="goToReviewPage(1)" aria-label="Page 1">1</button>
+          <button class="page-num" onclick="goToReviewPage(2)" aria-label="Page 2">2</button>
+          <button class="page-num" onclick="goToReviewPage(3)" aria-label="Page 3">3</button>
+        </div>
+        <button class="pagination-btn next-btn" id="nextReviewsBtn" onclick="changeReviewPage(1)" aria-label="Next reviews">
+          Next →
+        </button>
+      </div>
+      <div class="reviews-page-indicator" id="reviewPageIndicator">
+        Showing page 1 of 3 &bull; 6 reviews (2 English &bull; 2 Punjabi &bull; 2 Hinglish)
       </div>
     </div>
   </section>
@@ -2822,6 +2941,56 @@
       const encodedMsg = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/917508008333?text=${encodedMsg}`;
       window.open(whatsappUrl, '_blank');
+    }
+
+    // Reviews Pagination Logic (6 reviews per page - 2 English, 2 Punjabi, 2 Hinglish)
+    let currentReviewPage = 1;
+    const totalReviewPages = 3;
+
+    function goToReviewPage(pageNum) {
+      if (pageNum < 1 || pageNum > totalReviewPages) return;
+      currentReviewPage = pageNum;
+
+      const cards = document.querySelectorAll('.review-card[data-page]');
+      cards.forEach(card => {
+        if (card.getAttribute('data-page') == pageNum) {
+          card.classList.add('active-page');
+        } else {
+          card.classList.remove('active-page');
+        }
+      });
+
+      const pageButtons = document.querySelectorAll('.pagination-numbers .page-num');
+      pageButtons.forEach((btn, idx) => {
+        if (idx + 1 === pageNum) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const prevBtn = document.getElementById('prevReviewsBtn');
+      const nextBtn = document.getElementById('nextReviewsBtn');
+      if (prevBtn) prevBtn.disabled = (pageNum === 1);
+      if (nextBtn) nextBtn.disabled = (pageNum === totalReviewPages);
+
+      const indicator = document.getElementById('reviewPageIndicator');
+      if (indicator) {
+        indicator.innerHTML = `Showing page ${pageNum} of ${totalReviewPages} &bull; 6 reviews (2 English &bull; 2 Punjabi/Hindi &bull; 2 Hinglish)`;
+      }
+
+      // Smooth scroll into review section if user was scrolled down
+      const reviewsSection = document.getElementById('reviews');
+      if (reviewsSection) {
+        const rect = reviewsSection.getBoundingClientRect();
+        if (rect.top < -50) {
+          reviewsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    function changeReviewPage(delta) {
+      goToReviewPage(currentReviewPage + delta);
     }
   </script>
 </body>
