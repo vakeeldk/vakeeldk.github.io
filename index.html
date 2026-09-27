@@ -1455,6 +1455,304 @@
       display: block;
     }
 
+    /* VIDEO GALLERY SECTION (NEAR FOOTER) */
+    .video-gallery-section {
+      background: radial-gradient(circle at 10% 20%, rgba(197, 160, 89, 0.12) 0%, transparent 45%),
+                  radial-gradient(circle at 90% 80%, rgba(37, 211, 102, 0.05) 0%, transparent 40%),
+                  linear-gradient(180deg, #070e1a 0%, #0d1b30 50%, #08111e 100%);
+      color: var(--white);
+      position: relative;
+      border-top: 2px solid rgba(197, 160, 89, 0.35);
+      border-bottom: 2px solid rgba(197, 160, 89, 0.2);
+    }
+    .video-gallery-section .section-heading {
+      color: var(--white);
+    }
+    .video-gallery-section .section-desc {
+      color: #94a3b8;
+    }
+    .video-gallery-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 38px;
+    }
+    .video-tab-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #cbd5e1;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+    }
+    .video-tab-btn:hover {
+      background: rgba(197, 160, 89, 0.18);
+      border-color: var(--accent-gold);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .video-tab-btn.active {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #a27a33 100%);
+      color: var(--primary-navy);
+      border-color: var(--accent-gold);
+      box-shadow: 0 4px 16px rgba(197, 160, 89, 0.4);
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto 45px;
+      justify-content: center;
+    }
+    @media (min-width: 992px) {
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .video-card {
+      background: rgba(19, 36, 63, 0.72);
+      border: 1px solid rgba(197, 160, 89, 0.22);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 18px 45px rgba(197, 160, 89, 0.25);
+    }
+    .video-card.featured-short {
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 14px 40px rgba(197, 160, 89, 0.28);
+    }
+    .video-card-badge-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 5;
+      background: #ff0000;
+      color: #ffffff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      pointer-events: none;
+    }
+    .video-player-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 540px;
+      background: #000000;
+      overflow: hidden;
+    }
+    .video-player-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .video-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+      background: linear-gradient(180deg, rgba(14, 30, 54, 0.75) 0%, rgba(9, 19, 34, 0.98) 100%);
+    }
+    .video-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.75rem;
+    }
+    .video-topic-tag {
+      background: rgba(197, 160, 89, 0.16);
+      color: var(--accent-gold-light);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      border: 1px solid rgba(197, 160, 89, 0.32);
+    }
+    .video-duration-badge {
+      color: #94a3b8;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .video-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .video-card-desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .video-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .video-btn-watch {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .video-btn-watch:hover {
+      background: #ff0000;
+      color: #ffffff;
+      border-color: #ff0000;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.35);
+      transform: translateY(-1px);
+    }
+    .video-btn-share {
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+    .video-btn-share:hover {
+      background: rgba(197, 160, 89, 0.2);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold-light);
+    }
+
+    /* Video Channel Banner / CTA */
+    .video-channel-banner {
+      background: linear-gradient(135deg, rgba(14, 30, 54, 0.92) 0%, rgba(9, 19, 34, 0.98) 100%);
+      border: 1px solid rgba(197, 160, 89, 0.32);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      margin-top: 15px;
+    }
+    .video-channel-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .video-channel-icon {
+      width: 52px;
+      height: 52px;
+      background: #ff0000;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.55rem;
+      box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+      flex-shrink: 0;
+    }
+    .video-channel-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .video-channel-text p {
+      color: #94a3b8;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .video-channel-btn {
+      background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(255, 0, 0, 0.4);
+      transition: all 0.25s ease;
+    }
+    .video-channel-btn:hover {
+      background: linear-gradient(135deg, #ff2222 0%, #e60000 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 0, 0, 0.5);
+    }
+    .copy-toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--primary-navy);
+      color: var(--white);
+      border: 1px solid var(--accent-gold);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* BCI COMPLIANCE DISCLAIMER */
     .disclaimer-section {
       background: #e2e8f0;
@@ -1760,6 +2058,7 @@
         <a href="#practices">Practice Areas</a>
         <a href="#knowledge">Legal Knowledge & FAQs</a>
         <a href="#chamber">Chambers Gallery</a>
+        <a href="#videos">Video Gallery</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Consultation</a>
         <a href="https://wa.me/917508008333?text=Hello%20Advocate%20Sharma,%20I%20would%20like%20to%20consult%20regarding%20a%20legal%20matter." target="_blank" class="btn-header-cta">
@@ -2812,6 +3111,152 @@
     </div>
   </section>
 
+  <!-- Video Gallery & Legal Shorts Section (Near Footer) -->
+  <section class="section-wrap video-gallery-section" id="videos">
+    <div class="section-header">
+      <span class="section-kicker">Legal Literacy & Court Insights</span>
+      <h2 class="section-heading">Video Gallery & YouTube Shorts</h2>
+      <p class="section-desc">
+        Watch quick legal explainers, citizen rights advisories, and procedural insights directly from Advocate D.K. Sharma.
+      </p>
+      <div class="divider-gold"></div>
+    </div>
+
+    <!-- Category Filter Controls -->
+    <div class="video-gallery-controls">
+      <button class="video-tab-btn active" onclick="filterVideos('all', this)">⚡ All Shorts</button>
+      <button class="video-tab-btn" onclick="filterVideos('awareness', this)">⚖️ Legal Literacy</button>
+      <button class="video-tab-btn" onclick="filterVideos('civil', this)">🏡 Civil & Land</button>
+      <button class="video-tab-btn" onclick="filterVideos('criminal', this)">🛡️ Criminal & Bail</button>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-grid" id="videoGrid">
+      
+      <!-- Video Item 1 (Featured Short: User Video FhYcq7VmjwU) -->
+      <div class="video-card featured-short" data-category="awareness">
+        <span class="video-card-badge-top">▶ YouTube Shorts</span>
+        <div class="video-player-container">
+          <iframe
+            src="https://www.youtube.com/embed/FhYcq7VmjwU?rel=0&modestbranding=1"
+            title="Legal Awareness & Citizen Rights | Advocate D.K. Sharma Mukerian"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="video-card-body">
+          <div>
+            <div class="video-card-meta">
+              <span class="video-topic-tag">Legal Awareness</span>
+              <span class="video-duration-badge">⏱ Shorts</span>
+            </div>
+            <h3 class="video-card-title">Legal Rights & Court Awareness</h3>
+            <p class="video-card-desc">
+              Key legal points and practical guidance for litigants navigating courtroom proceedings and civil/criminal remedies.
+            </p>
+          </div>
+          <div class="video-card-actions">
+            <a href="https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_" target="_blank" rel="noopener" class="video-btn-watch">
+              <span>▶ Watch on YouTube</span> ↗
+            </a>
+            <button class="video-btn-share" onclick="shareVideo('https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_')" title="Share Video" aria-label="Share Video">
+              🔗
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Item 2 (Civil & Land Law Short Slot) -->
+      <div class="video-card" data-category="civil">
+        <span class="video-card-badge-top">▶ YouTube Shorts</span>
+        <div class="video-player-container">
+          <iframe
+            src="https://www.youtube.com/embed/FhYcq7VmjwU?rel=0&modestbranding=1"
+            title="Property Mutation & Civil Court Injunctions | Advocate D.K. Sharma"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="video-card-body">
+          <div>
+            <div class="video-card-meta">
+              <span class="video-topic-tag">Civil & Property</span>
+              <span class="video-duration-badge">⏱ Shorts</span>
+            </div>
+            <h3 class="video-card-title">Land Mutation & Partition (Takseem)</h3>
+            <p class="video-card-desc">
+              Step-by-step insight into agricultural land partition under Punjab Land Revenue Act and obtaining stay injunctions.
+            </p>
+          </div>
+          <div class="video-card-actions">
+            <a href="https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_" target="_blank" rel="noopener" class="video-btn-watch">
+              <span>▶ Watch on YouTube</span> ↗
+            </a>
+            <button class="video-btn-share" onclick="shareVideo('https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_')" title="Share Video" aria-label="Share Video">
+              🔗
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Item 3 (Criminal Defense & Bail Short Slot) -->
+      <div class="video-card" data-category="criminal">
+        <span class="video-card-badge-top">▶ YouTube Shorts</span>
+        <div class="video-player-container">
+          <iframe
+            src="https://www.youtube.com/embed/FhYcq7VmjwU?rel=0&modestbranding=1"
+            title="Section 138 Cheque Bounce & Bail Rights | Advocate D.K. Sharma"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="video-card-body">
+          <div>
+            <div class="video-card-meta">
+              <span class="video-topic-tag">Criminal & NI Act</span>
+              <span class="video-duration-badge">⏱ Shorts</span>
+            </div>
+            <h3 class="video-card-title">Cheque Bounce & Bail Procedure</h3>
+            <p class="video-card-desc">
+              Mandatory notice timelines under Section 138 NI Act and difference between regular vs. anticipatory bail in Punjab courts.
+            </p>
+          </div>
+          <div class="video-card-actions">
+            <a href="https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_" target="_blank" rel="noopener" class="video-btn-watch">
+              <span>▶ Watch on YouTube</span> ↗
+            </a>
+            <button class="video-btn-share" onclick="shareVideo('https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_')" title="Share Video" aria-label="Share Video">
+              🔗
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Video Channel CTA Banner -->
+    <div class="video-channel-banner">
+      <div class="video-channel-info">
+        <div class="video-channel-icon">▶</div>
+        <div class="video-channel-text">
+          <h3>Subscribe for Recent Legal Updates & Court Insights</h3>
+          <p>Follow Advocate D.K. Sharma on YouTube for practical legal breakdowns, high court citations, and citizen guidance.</p>
+        </div>
+      </div>
+      <a href="https://youtube.com/shorts/FhYcq7VmjwU?si=QUJd6eF503fNtgn_" target="_blank" rel="noopener" class="video-channel-btn">
+        <span>▶ Watch on YouTube Shorts</span> ↗
+      </a>
+    </div>
+
+    <!-- Quick Toast Notification -->
+    <div class="copy-toast" id="copyToast">
+      <span>✓</span> Link copied to clipboard!
+    </div>
+  </section>
+
   <!-- Bar Council of India Mandatory Disclaimer -->
   <section class="disclaimer-section">
     <div class="disclaimer-inner">
@@ -2991,6 +3436,60 @@
 
     function changeReviewPage(delta) {
       goToReviewPage(currentReviewPage + delta);
+    }
+
+    // Video Gallery Filter Logic
+    function filterVideos(category, btn) {
+      const buttons = document.querySelectorAll('.video-tab-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const cards = document.querySelectorAll('#videoGrid .video-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Share Video Functionality (Web Share API + Clipboard Fallback)
+    function shareVideo(url) {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Legal Video by Advocate D.K. Sharma',
+          text: 'Watch this informative legal video by Advocate D.K. Sharma (Sharma Law Chambers, Mukerian):',
+          url: url
+        }).catch(() => copyToClipboard(url));
+      } else {
+        copyToClipboard(url);
+      }
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showToast);
+      } else {
+        const tempInput = document.createElement('input');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showToast();
+      }
+    }
+
+    function showToast() {
+      const toast = document.getElementById('copyToast');
+      if (toast) {
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2800);
+      }
     }
   </script>
 </body>
